@@ -1,26 +1,41 @@
 <template>
     <div id="app">
-        <ul class="nav">
-            <router-link to="/home">home</router-link>
-            <router-link to="/about">about</router-link>
-        </ul>
-        <router-view></router-view>
+        <div class="nav-box">
+            <ul class="nav">
+                <router-link to="/" exact tag="li">
+                    <i class="fa fa-home"></i>
+                    <span>home</span>
+                </router-link>
+               
+                <li>
+                    <router-link to="/document">document</router-link>
+                </li>
+                <li>
+                    <router-link to="/about">about</router-link>
+                </li>
+                <!-- <li>
+                    <router-link to="/user">user</router-link>
+                </li> -->
+            </ul>
+        </div>
+        <router-view name="slider"></router-view>
+        <router-view class="center"></router-view>
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'app'
-    }
+export default {
+    name: 'app'
+}
 </script>
 
 <style>
-    #app {
-        font-family: 'Avenir', Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        color: #2c3e50;
-        margin-top: 60px;
-    }
+#app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+}
 </style>
