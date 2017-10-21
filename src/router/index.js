@@ -5,8 +5,9 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 import home from '@/components/home'
-import about from '@/components/about'
 import document from '@/components/document'
+import about from '@/components/about'
+import user from '@/components/user'
 
 import hobby from '@/views/hobby'
 import work from '@/views/work'
@@ -69,6 +70,10 @@ let router = new VueRouter({
                     component: hobby
                 }
             ]
+        },
+        {
+            path: '/user/:type?/:userId?', // ? userId 可有可无
+            component: user
         },
         {
             path: '*',

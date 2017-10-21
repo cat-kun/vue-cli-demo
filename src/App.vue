@@ -8,18 +8,18 @@
                 </router-link>
                
                 <li>
-                    <router-link to="/document">document</router-link>
+                    <router-link to="/document#abc">document</router-link>
                 </li>
                 <li>
                     <router-link to="/about">about</router-link>
                 </li>
-                <!-- <li>
+                <li>
                     <router-link to="/user">user</router-link>
-                </li> -->
+                </li>
             </ul>
         </div>
         <router-view name="slider"></router-view>
-        <router-view class="center"></router-view>
+        <router-view class="center"></router-view>        
     </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
