@@ -2,7 +2,7 @@
     <div>
         我是user
         <div class="user-list">
-            <router-link style="padding: 0 20px" :to="'/user/'+ item.type + '/' +item.id" key="item,index in userList" v-for="item in userList">{{ item.name }}</router-link>
+            <router-link style="padding: 0 20px" :to="{path: '/user/'+item.type+'/'+item.id, query:{info: 'follow'}}" key="item,index in userList" v-for="item in userList">{{ item.name }}</router-link>
         </div>
         <div class="user-info" style="font-size: 20px" v-if="userInfo.name">
             <p>姓名：{{userInfo.name}}</p>
@@ -14,6 +14,9 @@
             <router-link exact to="?info=share">他的分享</router-link> -->
             <router-link exact :to="{path:'',query: {info: 'follow'}}">他的关注</router-link>
             <router-link exact :to="{path:'',query: {info: 'share'}}">他的分享</router-link>
+        </div>
+        <div>
+          {{$route.query}}
         </div>
     </div>
 </template>

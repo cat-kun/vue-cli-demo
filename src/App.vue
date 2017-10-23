@@ -19,7 +19,9 @@
             </ul>
         </div>
         <router-view name="slider"></router-view>
-        <router-view class="center"></router-view>        
+        <transition>
+            <router-view class="center"></router-view>
+        </transition>        
     </div>
 </template>
 
@@ -30,12 +32,24 @@ export default {
 </script>
 
 <style >
-#app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
-}
+ .v-enter{
+     opacity: 0;
+ }
+ .v-enter-to{
+     opacity: 1;
+ }
+ .v-enter-active{
+     transition: 1s;
+ }
+ .v-leave{
+     opacity: 1;
+ }
+
+ .v-leave-to{
+     opacity: 0;
+ }
+ 
+ .v-leave-active{
+     transition: 1s;
+ }
 </style>
