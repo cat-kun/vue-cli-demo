@@ -19,19 +19,42 @@
             </ul>
         </div>
         <router-view name="slider"></router-view>
-        <transition>
+        <transition :name="names" mode="out-in">
             <router-view class="center"></router-view>
-        </transition>        
+        </transition>     
+
+        当前导航的下标
+        {{ $route.meta.index }}   
     </div>
 </template>
 
 <script>
 export default {
-    name: 'app'
+    name: 'app',
+    watch: {
+        $route (to,from){
+            console.log(to.meta.index);     //目标导航下标
+            console.log(from.meta.index);     //离开导航下标
+            if(to.meta.index < from.meta.index){
+                this.names = 'right'
+            }else{
+                this.names = 'left'
+            }
+        }
+    },
+    data (){
+        return {
+            index: '/home',
+            names: 'left'
+        }
+    }
 }
 </script>
 
-<style >
+<style>
+html{
+    overflow-x: hidden;
+}
  .v-enter{
      opacity: 0;
  }
@@ -52,4 +75,21 @@ export default {
  .v-leave-active{
      transition: 1s;
  }
+ .left-enter{
+     transform: translateX(100%);
+ }
+ .left-enter-to{
+     transform: translateX(0);
+ }
+ .left-enter-active,
+ .left-leave-active{
+     transition: 1s;
+ }
+ .left-leave{
+     transform: translateX(0);
+ }
+ .left-leave-to{
+     transform: translateX(100%);
+ }
+
 </style>

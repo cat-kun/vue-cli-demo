@@ -40,11 +40,23 @@ let router = new VueRouter({
     routes: [
         {
             path: '/',
-            component: home
+            component: home,
+            meta: {
+                index: 0
+            }
+        },
+        {
+            path: '/home',
+            name: 'Home',
+            component: home,
+            alias: '/index'
         },
         {
             path: '/document',
             name: 'Document',
+            meta: {
+                index: 1
+            },
             components: {
                 default: document,
                 slider: slider
@@ -57,7 +69,10 @@ let router = new VueRouter({
                 {
                     path: '', //默认的子路由
                     name: 'About',
-                    component: study
+                    component: study,
+                    meta: {
+                        index: 2
+                    }
                 },
                 {
                     path: '/work',
@@ -73,7 +88,10 @@ let router = new VueRouter({
         },
         {
             path: '/user/:type?/:userId?', // ? userId 可有可无
-            component: user
+            component: user,
+            meta: {
+                index: 3
+            }
         },
         {
             path: '*',
